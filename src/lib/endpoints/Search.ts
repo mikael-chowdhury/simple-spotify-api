@@ -1,20 +1,22 @@
 import {
   AlbumObject,
+  ArtistObject,
+  AudiobookObject,
+  PlaylistObject,
   SimplifiedAlbumObject,
   SimplifiedArtistObject,
   SimplifiedAudiobookObject,
   SimplifiedPlaylistObject,
   SimplifiedTrackObject,
   SpotifyList,
+  TrackObject,
 } from "../../@types/types";
 import SpotifyApiClient from "../SpotifyApiClient";
 
 export default class Search {
   constructor(private client: SpotifyApiClient) {}
 
-  searchAlbums(query: string): Promise<{
-    albums: SpotifyList<SimplifiedAlbumObject>;
-  }> {
+  searchAlbums(query: string): Promise<SpotifyList<AlbumObject>> {
     return new Promise((res, rej) => {
       this.client.apiHelper.get(`/search?q=${query}&type=album`).then((response: any) => {
         res(response.data.albums as any);
@@ -22,9 +24,7 @@ export default class Search {
     });
   }
 
-  searchArtists(query: string): Promise<{
-    artists: SpotifyList<SimplifiedArtistObject>;
-  }> {
+  searchArtists(query: string): Promise<SpotifyList<ArtistObject>> {
     return new Promise((res, rej) => {
       this.client.apiHelper.get(`/search?q=${query}&type=artist`).then((response: any) => {
         res(response.data.artists as any);
@@ -32,9 +32,7 @@ export default class Search {
     });
   }
 
-  searchTracks(query: string): Promise<{
-    tracks: SpotifyList<SimplifiedTrackObject>;
-  }> {
+  searchTracks(query: string): Promise<SpotifyList<TrackObject>> {
     return new Promise((res, rej) => {
       this.client.apiHelper.get(`/search?q=${query}&type=track`).then((response: any) => {
         res(response.data.tracks as any);
@@ -42,9 +40,7 @@ export default class Search {
     });
   }
 
-  searchPlaylists(query: string): Promise<{
-    playlists: SpotifyList<SimplifiedPlaylistObject>;
-  }> {
+  searchPlaylists(query: string): Promise<SpotifyList<PlaylistObject>> {
     return new Promise((res, rej) => {
       this.client.apiHelper.get(`/search?q=${query}&type=playlist`).then((response: any) => {
         res(response.data.playlists as any);
@@ -52,9 +48,7 @@ export default class Search {
     });
   }
 
-  searchAudiobooks(query: string): Promise<{
-    audiobooks: SpotifyList<SimplifiedAudiobookObject>;
-  }> {
+  searchAudiobooks(query: string): Promise<SpotifyList<AudiobookObject>> {
     return new Promise((res, rej) => {
       this.client.apiHelper.get(`/search?q=${query}&type=audiobook`).then((response: any) => {
         res(response.data.audiobooks as any);

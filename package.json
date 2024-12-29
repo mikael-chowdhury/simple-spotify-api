@@ -1,11 +1,12 @@
 {
   "name": "@mikaelchowdhury/spotifyapi",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "main": "./dist/index.js",
   "types": "./dist/spotifyapi.d.ts",
   "scripts": {
     "test": "./compile.sh && node test/test.js"
   },
+  "repository": "https://github.com/mikael-chowdhury/simple-spotify-api",
   "publishConfig": {
     "access": "public"
   },

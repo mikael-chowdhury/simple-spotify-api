@@ -52,18 +52,18 @@ export default class Track {
 
   getRecommendations(options: {
     seed_tracks: string[];
-    seed_artists?: string[];
-    seed_genres?: string[];
+    seed_artists: string[];
+    seed_genres: string[];
   }): Promise<{ seeds: RecommendationSeedObject[]; tracks: SpotifyList<TrackObject> }> {
     return new Promise((res, rej) => {
-      const query = Object.keys(options)
-        .map((key) => {
-          return key + "=" + options[key as keyof typeof options]!.join(",");
-        })
-        .join("&");
-      this.client.apiHelper.get(`/recommendations?${query}`).then((response: any) => {
-        res(response.data as any);
-      });
+      const genres = options.seed_genres.join(",");
+      const tracks = options.seed_tracks.join(",");
+      const artists = options.seed_artists.join(",");
+      this.client.apiHelper
+        .get(`/recommendations?seed_genres=${genres}&seed_artists=${artists}&seed_tracks=${tracks}`)
+        .then((response: any) => {
+          res(response.data as any);
+        });
     });
   }
 }

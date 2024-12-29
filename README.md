@@ -1,8 +1,8 @@
 # Spotify API NPM Package
 
-![npm](https://img.shields.io/npm/v/spotify-api)
-![license](https://img.shields.io/npm/l/spotify-api-package)
-![issues](https://img.shields.io/github/issues/yourusername/spotify-api-package)
+![npm](https://img.shields.io/npm/v/@mikaelchowdhury/spotifyapi)
+![license](https://img.shields.io/npm/l/@mikaelchowdhury/spotifyapi)
+![issues](https://img.shields.io/github/issues/mikael-chowdhury/simple-spotify-api)
 
 A robust and type-safe npm package that allows developers to easily access the Spotify API. This package provides TypeScript typings for all Spotify API endpoints, making it easy to integrate Spotify's vast array of music data into your applications.
 
@@ -21,10 +21,10 @@ A robust and type-safe npm package that allows developers to easily access the S
 You can install the package using npm or yarn:
 
 ```bash
-npm install spotify-api-package
+npm install @mikaelchowdhury/spotifyapi
 or
 
-yarn add spotify-api-package
+yarn add @mikaelchowdhury/spotifyapi
 ```
 
 ## Usage
@@ -34,10 +34,10 @@ To use this package, you will need to have a Spotify Developer account and obtai
 Basic Setup
 
 ```ts
-import { SpotifyClient } from "spotify-api-package";
+import { SpotifyApiClient } from "@mikaelchowdhury/spotifyapi";
 
-const client = new SpotifyClient({
-  clientId: "your-client-id",
+const client = new SpotifyApiClient({
+  clientKey: "your-client-id",
   clientSecret: "your-client-secret",
 });
 
@@ -104,7 +104,3 @@ Lmk if you wna contribute because there is probably a lot of mistakes haha
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-```
-
-```

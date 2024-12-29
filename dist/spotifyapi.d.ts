@@ -55,8 +55,8 @@ declare interface ApiOptions_2 {
 declare class Artist {
     private client;
     constructor(client: SpotifyApiClient);
-    getArtist(artistId: string): Promise<SimplifiedArtistObject>;
-    getArtists(artistIds: string[]): Promise<SimplifiedArtistObject[]>;
+    getArtist(artistId: string): Promise<ArtistObject>;
+    getArtists(artistIds: string[]): Promise<ArtistObject[]>;
     getArtistAlbums(artistId: string): Promise<Album[]>;
     getArtistTopTracks(artistId: string): Promise<TrackObject[]>;
     getRelatedArtists(artistId: string): Promise<ArtistObject[]>;

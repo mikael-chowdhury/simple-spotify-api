@@ -8,13 +8,13 @@ export default class Artist {
     this.client = client;
   }
 
-  getArtist(artistId: string): Promise<SimplifiedArtistObject> {
+  getArtist(artistId: string): Promise<ArtistObject> {
     return new Promise((res, rej) => {
       this.client.apiHelper.get("/artists/" + artistId).then((response: any) => res(response.data));
     });
   }
 
-  getArtists(artistIds: string[]): Promise<SimplifiedArtistObject[]> {
+  getArtists(artistIds: string[]): Promise<ArtistObject[]> {
     if (artistIds.length > 50) {
       throw new Error("You can only get up to 50 artists at a time");
     }
